@@ -14,9 +14,7 @@ const WishlistRouter = () => {
   const limit = pLimit(10);
 
   const wishlistValidator = async (req, res, next) => {
-    const {
-      cookies: { user: userId },
-    } = req;
+    const userId = "93b9959a-5347-4cde-93c1-1be603c94ca4";
 
     const wishlist = await wishlistClient.byId(req.params.id);
 
@@ -38,9 +36,7 @@ const WishlistRouter = () => {
     authValidator,
     refreshCookie,
     async (req, res) => {
-      const {
-        cookies: { user: userId },
-      } = req;
+      const userId = "93b9959a-5347-4cde-93c1-1be603c94ca4";
 
       const wishlists = await wishlistClient.byUserId(userId);
 
@@ -53,10 +49,8 @@ const WishlistRouter = () => {
     authValidator,
     refreshCookie,
     async (req, res) => {
-      const {
-        body,
-        cookies: { user: userId },
-      } = req;
+      const { body } = req;
+      const userId = "93b9959a-5347-4cde-93c1-1be603c94ca4";
 
       if (!body.name) {
         return res

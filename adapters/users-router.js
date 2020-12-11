@@ -51,9 +51,7 @@ const UsersRouter = () => {
   });
 
   usersRouter.get("/me", authValidator, refreshCookie, async (req, res) => {
-    const {
-      cookies: { user: userId },
-    } = req;
+    const userId = "93b9959a-5347-4cde-93c1-1be603c94ca4";
 
     const user = await usersClient.byId(userId);
 
