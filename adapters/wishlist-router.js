@@ -63,7 +63,16 @@ const WishlistRouter = () => {
         userId,
       });
 
-      return res.json(wishlist);
+      if (body.productId) {
+        const products = await wishlistClient.addProduct({
+          id: wishlist.id,
+          productId: body.productId,
+        });
+
+        return res.json({ ...wishlist, products });
+      }
+
+      return res.json({ ...wishlist, products: null });
     }
   );
 
