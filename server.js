@@ -11,13 +11,13 @@ import CategoriesRouter from "./adapters/categories-router";
 const app = express();
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "true",
   credentials: true,
 };
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
-app.use(cookieParser(corsOptions));
+app.use(cookieParser());
 
 app.use(UsersRouter());
 app.use(WishlistRouter());
