@@ -27,7 +27,11 @@ const UsersRouter = () => {
       email: body.email,
     });
 
-    res.cookie("user", user.id, { maxAge: 9000000 });
+    res.cookie("user", user.id, {
+      maxAge: 9000000,
+      sameSite: "None",
+      secure: true,
+    });
 
     return res.json(user);
   });
@@ -45,7 +49,11 @@ const UsersRouter = () => {
       return res.status(400).json({ error: "User does not exist" });
     }
 
-    res.cookie("user", user.id, { maxAge: 9000000 });
+    res.cookie("user", user.id, {
+      maxAge: 9000000,
+      sameSite: "None",
+      secure: true,
+    });
 
     return res.json(user);
   });
@@ -59,7 +67,11 @@ const UsersRouter = () => {
   });
 
   usersRouter.post("/signout", async (req, res) => {
-    res.clearCookie("user", { maxAge: 9000000 });
+    res.clearCookie("user", {
+      maxAge: 9000000,
+      sameSite: "None",
+      secure: true,
+    });
 
     return res.send("logged out");
   });
