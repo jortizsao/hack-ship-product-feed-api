@@ -11,7 +11,7 @@ import CategoriesRouter from "./adapters/categories-router";
 const app = express();
 
 const corsOptions = {
-  origin: true,
+  origin: "http://localhost:3000",
   credentials: true,
 };
 
