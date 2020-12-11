@@ -10,9 +10,14 @@ import CategoriesRouter from "./adapters/categories-router";
 
 const app = express();
 
+const corsOptions = {
+  origin: true,
+  credentials: true,
+};
+
 app.use(cors());
 app.use(bodyParser.json());
-app.use(cookieParser());
+app.use(cookieParser(corsOptions));
 
 app.use(UsersRouter());
 app.use(WishlistRouter());
