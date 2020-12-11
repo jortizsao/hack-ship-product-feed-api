@@ -1,0 +1,35 @@
+{
+  "name": "hack-ship-product-feed-api",
+  "version": "0.0.1",
+  "description": "API for product feed",
+  "main": "server.js",
+  "scripts": {
+    "dev": "NODE_OPTIONS='-r esm' env-cmd nodemon server.js",
+    "start": "node -r esm server.js",
+    "database:run-migrations": "env-cmd knex migrate:latest",
+    "database:rollback-all-migrations": "env-cmd knex migrate:rollback --all",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "knex": "^0.21.12",
+    "node-fetch": "^2.6.1",
+    "pg": "^8.5.1"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "eslint": "^7.15.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "esm": "^3.2.25",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.2.1"
+  }
+}
