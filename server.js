@@ -1,10 +1,23 @@
 import express from "express";
+import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+
+import WishlistRouter from "./adapters/wishlist-router";
+import UsersRouter from "./adapters/users-router";
+import ProductsRouter from "./adapters/products-router";
+import CategoriesRouter from "./adapters/categories-router";
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("Hello world");
-});
+app.use(cors());
+app.use(bodyParser.json());
+app.use(cookieParser());
+
+app.use(UsersRouter());
+app.use(WishlistRouter());
+app.use(ProductsRouter());
+app.use(CategoriesRouter());
 
 const port = process.env.PORT || 3000;
 
