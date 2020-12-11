@@ -13,10 +13,6 @@ const ProductsRouter = () => {
 
     const wishlists = await productsClient.getWishlists(productIds);
 
-    // if (!wishlists.length) {
-    //   return products;
-    // }
-
     return mergeProductsWithWishlists(products, wishlists);
   };
 
