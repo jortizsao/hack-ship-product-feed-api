@@ -63,6 +63,14 @@ const WishlistsClient = () => {
     return wishlistsClient.getProducts(id);
   };
 
+  wishlistsClient.delete = (id) => {
+    return client("Wishlist")
+      .where({
+        id,
+      })
+      .del();
+  };
+
   return wishlistsClient;
 };
 

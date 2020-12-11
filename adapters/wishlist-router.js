@@ -142,6 +142,18 @@ const WishlistRouter = () => {
     }
   );
 
+  wishlistRouter.delete(
+    "/wishlists/:id",
+    authValidator,
+    refreshCookie,
+    wishlistValidator,
+    async (req, res) => {
+      const wishlist = await wishlistClient.delete(req.params.id);
+
+      return res.json(wishlist);
+    }
+  );
+
   return wishlistRouter;
 };
 
