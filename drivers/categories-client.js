@@ -11,7 +11,7 @@ const CategoriesClient = () => {
       .then(({ data }) => data);
   };
 
-  categoriesClient.getProducts = ({ id, page, pageSize }) => {
+  categoriesClient.getProducts = ({ id, page = 1, pageSize = 12 }) => {
     return fetch(
       `${baseUrl}/categories/${id}/products?page=${page}&page_size=${pageSize}`
     )
